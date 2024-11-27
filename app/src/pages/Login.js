@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { toast } from "react-toastify";
 
 export default function Login() {
   let navigate = useNavigate();
@@ -30,13 +31,14 @@ export default function Login() {
     setdisable(() => true);
 
     axios
-      .post("http://localhost:5000/auth/login", {
+      .post("https://loan-app-znuq.onrender.com/auth/login", {
         ...formData,
       })
       .then((data) => {
         const { token, user } = data.data;
         localStorage.setItem("token", JSON.stringify(token));
         localStorage.setItem("user", JSON.stringify(user));
+        toast.success("Verified User");
         navigate(`/${formData.userType === "admin" ? "admin" : ""}`);
       })
       .catch((err) => {

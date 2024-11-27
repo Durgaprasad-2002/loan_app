@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import Loader from "../components/Loader";
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ export default function Dashboard() {
   function getData() {
     setLoading(() => true);
     axios
-      .get("http://localhost:5000/api/admin/status", {
+      .get("https://loan-app-znuq.onrender.com/api/admin/status", {
         headers: {
           authorization: JSON.parse(localStorage.getItem("token")),
         },
@@ -39,7 +38,7 @@ export default function Dashboard() {
     setLoading(() => true);
     axios
       .put(
-        `http://localhost:5000/api/admin/approve/${id}`,
+        `https://loan-app-znuq.onrender.com/api/admin/approve/${id}`,
         {},
         {
           headers: {

@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,7 +27,7 @@ export default function Dashboard() {
     setLoading(() => true);
     axios
       .post(
-        "http://localhost:5000/api/loan",
+        "https://loan-app-znuq.onrender.com/api/loan",
         {
           ...formData,
           tenure: Number(formData.tenure),
@@ -40,11 +41,11 @@ export default function Dashboard() {
         }
       )
       .then((data) => {
-        alert(data?.data?.message);
+        toast.success(data?.data?.message);
         navigate("/loans");
       })
       .catch((err) => {
-        alert("failed to create Loan");
+        toast.warning("Failed to create loan");
         console.log(err);
       })
       .finally(() => setLoading(() => false));

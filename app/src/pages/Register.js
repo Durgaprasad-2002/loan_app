@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { toast } from "react-toastify";
 
 export default function Register() {
   let navigate = useNavigate();
@@ -44,15 +45,17 @@ export default function Register() {
     setdisable(() => true);
 
     axios
-      .post("http://localhost:5000/auth/register", {
+      .post("https://loan-app-znuq.onrender.com/auth/register", {
         ...formData,
       })
       .then((data) => {
-        alert("Account Created Successfully");
-        // navigate("/login");
+        toast.success("Successfully Registered");
+
+        navigate("/login");
       })
       .catch((err) => {
         const errmsg = err?.response?.data?.message || "An Error Occured!";
+
         setMessage(() => errmsg);
         console.log(err);
       })

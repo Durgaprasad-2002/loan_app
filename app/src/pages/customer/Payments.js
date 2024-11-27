@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 
@@ -22,11 +23,14 @@ export default function Payments() {
   function getRepayments() {
     setLoading(() => true);
     axios
-      .get(`http://localhost:5000/api/loan/repayments/${user.userId}`, {
-        headers: {
-          authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      })
+      .get(
+        `https://loan-app-znuq.onrender.com/api/loan/repayments/${user.userId}`,
+        {
+          headers: {
+            authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      )
       .then((data) => {
         setRepayments(() => data?.data);
       })
@@ -43,7 +47,7 @@ export default function Payments() {
     setLoading(() => true);
     axios
       .post(
-        `http://localhost:5000/api/loan/repay/${data?.repaymentId}`,
+        `https://loan-app-znuq.onrender.com/api/loan/repay/${data?.repaymentId}`,
         {
           amount: amount,
         },
@@ -54,12 +58,13 @@ export default function Payments() {
         }
       )
       .then((data) => {
-        alert("Payment Done");
+        toast.success("Payment Done");
+
         getRepayments();
       })
       .catch((err) => {
         console.log(err);
-        alert("Failed to Pay");
+        toast.warning("Payment Failed");
       })
       .finally(() => {
         setLoading(() => false);

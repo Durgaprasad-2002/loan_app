@@ -4,11 +4,14 @@ import Dashboard from "./pages/customer/Dashboard";
 import AdminDashboard from "./pages/admin/Dashboard.js";
 import Loans from "./pages/customer/Loans";
 import Payments from "./pages/customer/Payments.js";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
+      <ToastContainer position="bottom-center" />
       <BrowserRouter>
         <Routes>
           <Route index path="/" element={<Dashboard />} />

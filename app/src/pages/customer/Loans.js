@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import { toast } from "react-toastify";
 
 export default function Loans() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Loans() {
   function getData() {
     setLoading(() => true);
     axios
-      .get(`http://localhost:5000/api/loan/loans/${user.userId}`, {
+      .get(`https://loan-app-znuq.onrender.com/api/loan/loans/${user.userId}`, {
         headers: {
           authorization: JSON.parse(localStorage.getItem("token")),
         },
