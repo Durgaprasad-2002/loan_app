@@ -1,0 +1,441 @@
+/* -----------------------------Login & SignUp--------------------- */
+
+.title-login {
+  text-align: center;
+  color: black;
+}
+.Container-login {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fc;
+}
+
+.login-box {
+  animation: op-forward-bt 0.3s ease forwards;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e2ec;
+  box-shadow: 0 2px 6px 0 rgba(110, 116, 146, 0.08);
+  overflow: hidden;
+  transition: border 120ms ease-out, box-shadow 120ms ease-out;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  color: rgb(89, 89, 89);
+  font-weight: 500;
+}
+
+.input-field {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #cdd0e0;
+  box-shadow: inset 0 1px 1px 0 rgba(110, 116, 146, 0.12);
+  box-sizing: border-box;
+  padding: 0px 11px;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.input-field:hover {
+  border-color: #919297;
+}
+
+.input-field:focus {
+  outline-color: rgba(31, 81, 217, 0.5);
+}
+
+.submit-btn {
+  background-color: #255eee;
+  border: 1px solid #1f51d9;
+  box-shadow: 0 1px 1px 0 rgba(12, 42, 152, 0.16);
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  min-height: 40px;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 0px 15px;
+  cursor: pointer;
+  transition: opacity 200ms ease, background-color 200ms ease;
+}
+
+.submit-btn:hover {
+  opacity: 1;
+  background-color: #1f51d9;
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(31, 81, 217, 0.5);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 90px;
+    height: 150px;
+  }
+  .login-box {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .input-field {
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    min-height: 36px;
+  }
+}
+
+.warning-msg {
+  color: red;
+}
+
+.Logout {
+  color: red;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.Logout:hover {
+  background: red;
+  color: white;
+}
+
+.alternate-msg {
+  text-align: center;
+}
+
+/* -------------------Navbar-------------------------------- */
+
+.Logout {
+  color: red;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.Logout:hover {
+  background: red;
+  color: white;
+}
+
+.navbar {
+  position: relative;
+  margin: 0;
+  padding: 5px 11px;
+  background-color: #255eee;
+  box-shadow: 0px 3px 4px rgba(104, 104, 104, 0.4);
+}
+
+.inner-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-btn {
+  position: fixed !important;
+  top: 30px;
+  right: 14px;
+  z-index: 1001;
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  color: black;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  color: black;
+}
+
+.hor-bar {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  background-color: white;
+  margin: 5px 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+.show-nav {
+  z-index: 1000;
+  display: flex !important;
+  animation: op-forward 0.5s ease forwards;
+}
+
+.hide-nav {
+  display: none;
+  transform: translateY(-1000px);
+  animation: op-backward 0.2s ease forwards;
+}
+
+@keyframes op-forward {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
+}
+
+.nav-layout {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(239, 239, 239);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav-link-item {
+  text-align: center;
+  border-bottom: 1px solid darkgray;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.nav-link-item:last-child {
+  border-bottom: none;
+}
+
+.nav-link-item a {
+  color: rgb(87, 1, 87);
+  text-align: center;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  padding: 3px 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link-item a:hover {
+  text-align: center;
+  background-color: white;
+  color: #255eee;
+  border-radius: 2px;
+}
+
+.brand {
+  font-family: Brush Script MT, cursive;
+  color: white;
+  font-size: xx-large;
+}
+.inner-nav a {
+  text-decoration: none;
+}
+/* --------------------------- Dashboard------------------------- */
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.form-container-1 {
+  width: 400px;
+  border: 1.3px solid lightgray;
+  padding: 20px 30px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 4px rgba(149, 149, 149, 0.5);
+  margin: 15px;
+}
+
+.form-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px;
+  margin: 20px 0px;
+}
+
+.form-fields-container label {
+  color: #4d4d4e;
+  margin-bottom: 5px;
+}
+
+/* -------------------Loans-------------- */
+
+.outer-loans {
+  padding: 20px;
+}
+.LoanCounts {
+  justify-content: flex-start !important;
+}
+
+.LoanCounts-2 h2 {
+  background-color: rgb(234, 231, 231);
+  padding: 5px 10px;
+  border-radius: 4px;
+  width: max-content;
+}
+.pendin-loans,
+.LoanCounts,
+.repay-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.LoanCounts-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.loan-card-pend {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px 0;
+  width: 100%;
+  max-width: 360px;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* .loan-card-pend:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+} */
+
+.loan-card-pend h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.loan-card-pend h4 {
+  font-size: 1rem;
+  color: #555;
+  margin: 8px 0;
+}
+
+.loan-card-pend h4 p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 4px 0 0;
+}
+
+.loan-card-pend p {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 8px 0;
+}
+
+.loan-card-pend b {
+  color: #007bff;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+.title-loan {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.title {
+  font-weight: 500;
+  border-left: 4px solid blue;
+  padding-left: 5px;
+}
+
+.outer-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top: 3px solid #3498db;
+  border-right: 3px solid #3498db;
+  border-bottom: 3px solid #3498db;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
